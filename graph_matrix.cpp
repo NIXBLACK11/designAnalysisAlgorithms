@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include <deque>
+#include<stack>
 using namespace std;
 
 void addEdge(vector<vector<int>> &Graph, vector<pair<int, int>> &Edges)
@@ -65,6 +66,38 @@ void DFS(vector<vector<int>>& Graph, int s, int v, vector<int>& visited)
     }
 }
 
+void TraverseDFS(vector<vector<int>>& Graph, int s, int v, vector<int>& visited, stack<int>& Stack)
+{
+    visited[s] = 1;
+    for(int i=0;i<v;i++)
+    {
+        if(Graph[s][i]==1 && !visited[i])
+        {
+            TraverseDFS(Graph, i, v, visited, Stack);
+        }
+    }
+    Stack.push(s);
+}
+
+void TopologicalSort(vector<vector<int>>& Graph, int v)
+{
+    vector<int> visited(v, 0);
+    stack<int> Stack;
+
+    for(int i=0;i<v;i++)
+    {
+        if(!visited[i])
+        {
+            TraverseDFS(Graph, i, v, visited, Stack);
+        }
+    }
+    while(!Stack.empty())
+    {
+        cout<<Stack.top()<<",";
+        Stack.pop();
+    }
+}
+
 int main()
 {
     int v, e;
@@ -84,20 +117,33 @@ int main()
     }
     addEdge(Graph, Edges);
     display(Graph,v);
-    cout<<"BFS"<<endl;
+    cout<<"\nBFS-----------------------------------"<<endl;
     cout<<"Enter the source :"<<endl;
     int s;
     cin>>s;
     BFS(Graph, s, v);
-    cout<<"DFS"<<endl;
+    cout<<"\nDFS-----------------------------------"<<endl;
     vector<int> visited(v, 0);
     DFS(Graph, s, v, visited);
-    
+    cout<<"\nTopological---------------------------"<<endl;
+    TopologicalSort(Graph, v);
 }
 
+// DFS
 //     g.addEdge(0, 1);
 //     g.addEdge(0, 2);
 //     g.addEdge(1, 2);
 //     g.addEdge(2, 0);
 //     g.addEdge(2, 3);
 //     g.addEdge(3, 3);
+
+// TopologicalSort
+// Graph g(6);
+//     g.addEdge(5, 2);
+//     g.addEdge(5, 0);
+//     g.addEdge(4, 0);
+//     g.addEdge(4, 1);
+//     g.addEdge(2, 3);
+//     g.addEdge(3, 1);
+
+// 5 4 2 3 1 0 
