@@ -53,6 +53,11 @@ void BFS(vector<vector<int>>& Graph, int s, int v)
     }
 }
 
+
+// The time complexity of the DFS algorithm is O(V+E), where V is the number of vertices and E is the number of edges in the graph.
+
+// The space complexity of the DFS algorithm is O(V).
+
 void DFS(vector<vector<int>>& Graph, int s, int v, vector<int>& visited)
 {
     visited[s] = 1;
@@ -78,6 +83,12 @@ void TraverseDFS(vector<vector<int>>& Graph, int s, int v, vector<int>& visited,
     }
     Stack.push(s);
 }
+
+// Time Complexity: O(V+E). The above algorithm is simply DFS with an extra stack. So time complexity is the same as DFS
+
+// Auxiliary space: O(V). The extra space is needed for the stack
+
+// Note: Here, we can also use a vector instead of the stack. If the vector is used then print the elements in reverse order to get the topological sorting.
 
 void TopologicalSort(vector<vector<int>>& Graph, int v)
 {
