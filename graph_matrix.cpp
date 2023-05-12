@@ -52,6 +52,19 @@ void BFS(vector<vector<int>>& Graph, int s, int v)
     }
 }
 
+void DFS(vector<vector<int>>& Graph, int s, int v, vector<int>& visited)
+{
+    visited[s] = 1;
+    cout<<s<<",";
+    for(int i=0;i<v;i++)
+    {
+        if(Graph[s][i] == 1 && !visited[i])
+        {
+            DFS(Graph, i, v, visited);
+        }
+    }
+}
+
 int main()
 {
     int v, e;
@@ -76,4 +89,15 @@ int main()
     int s;
     cin>>s;
     BFS(Graph, s, v);
+    cout<<"DFS"<<endl;
+    vector<int> visited(v, 0);
+    DFS(Graph, s, v, visited);
+    
 }
+
+//     g.addEdge(0, 1);
+//     g.addEdge(0, 2);
+//     g.addEdge(1, 2);
+//     g.addEdge(2, 0);
+//     g.addEdge(2, 3);
+//     g.addEdge(3, 3);
