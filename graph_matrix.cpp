@@ -118,12 +118,6 @@ void TopologicalSort(vector<vector<int>>& Graph, int v)
     }
 }
 
-void Kruskal(vector<vector<int>>& Graph, int v, vector<vector<int>>& Edges)
-{
-    sort(Edges.begin(), Edges.end());
-    
-}
-
 int main()
 {
     int v, e;
@@ -131,42 +125,28 @@ int main()
     cin>>v;
     cout<<"Enter the number of edges :";
     cin>>e;
-    // vector<vector<int>> Graph(v, vector<int> (v, 0)) ;
-    // vector<pair<int, int>> Edges;
-    // for(int i=0;i<e;i++)
-    // {
-    //     cout<<"Enter the vertices:";
-    //     int s, d;
-    //     cin>>s;
-    //     cin>>d;
-    //     Edges.push_back({s,d});
-    // }
-    // addEdge(Graph, Edges);
-    // display(Graph,v);
-    // cout<<"\nBFS-----------------------------------"<<endl;
-    // cout<<"Enter the source :"<<endl;
-    // int s;
-    // cin>>s;
-    // BFS(Graph, s, v);
-    // cout<<"\nDFS-----------------------------------"<<endl;
-    // vector<int> visited(v, 0);
-    // DFS(Graph, s, v, visited);
-    // cout<<"\nTopological---------------------------"<<endl;
-    // TopologicalSort(Graph, v);
-    vector<vector<int>> Graph(v, vector<int>(v, 0));
-    vector<vector<int>> Edges(v, vector<int>(3, 0));
-    for (int i = 0; i < e; i++)
+    vector<vector<int>> Graph(v, vector<int> (v, 0)) ;
+    vector<pair<int, int>> Edges;
+    for(int i=0;i<e;i++)
     {
         cout<<"Enter the vertices:";
-        int s, d, w;
+        int s, d;
         cin>>s;
         cin>>d;
-        cout<<"Enter the weight:";
-        cin>>w;
-        Edges.push_back({w, s, d});
+        Edges.push_back({s,d});
     }
-    createGraph(Graph, Edges, v);
-    Kruskal(Graph, v, Edges);
+    addEdge(Graph, Edges);
+    display(Graph,v);
+    cout<<"\nBFS-----------------------------------"<<endl;
+    cout<<"Enter the source :"<<endl;
+    int s;
+    cin>>s;
+    BFS(Graph, s, v);
+    cout<<"\nDFS-----------------------------------"<<endl;
+    vector<int> visited(v, 0);
+    DFS(Graph, s, v, visited);
+    cout<<"\nTopological---------------------------"<<endl;
+    TopologicalSort(Graph, v);
 
 }
 
