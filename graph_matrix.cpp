@@ -136,15 +136,15 @@ int main()
         Edges.push_back({s,d});
     }
     addEdge(Graph, Edges);
-    display(Graph,v);
-    cout<<"\nBFS-----------------------------------"<<endl;
-    cout<<"Enter the source :"<<endl;
-    int s;
-    cin>>s;
-    BFS(Graph, s, v);
-    cout<<"\nDFS-----------------------------------"<<endl;
-    vector<int> visited(v, 0);
-    DFS(Graph, s, v, visited);
+    // display(Graph,v);
+    // cout<<"\nBFS-----------------------------------"<<endl;
+    // cout<<"Enter the source :"<<endl;
+    // int s;
+    // cin>>s;
+    // BFS(Graph, s, v);
+    // cout<<"\nDFS-----------------------------------"<<endl;
+    // vector<int> visited(v, 0);
+    // DFS(Graph, s, v, visited);
     cout<<"\nTopological---------------------------"<<endl;
     TopologicalSort(Graph, v);
 
