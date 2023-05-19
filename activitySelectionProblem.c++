@@ -9,7 +9,7 @@ bool cmp(pair<int, int>& A, pair<int, int>& B)
     return A.second <= B.second;
 }
 
-void ASP(vector<pair<int, int>>& Tasks, int n)
+bool ASP(vector<pair<int, int>>& Tasks, int n)
 {
     sort(Tasks.begin(), Tasks.end(), cmp);
     int endTime = -1;
@@ -23,7 +23,11 @@ void ASP(vector<pair<int, int>>& Tasks, int n)
             it.first = INT_MIN;
         }
     }
-    cout<<"Count:"<<count<<endl;
+    if(count == 0)
+    {
+        return false;
+    }
+    return true;
 }
 
 int main()
@@ -41,6 +45,18 @@ int main()
         cin>>e;
         Tasks.push_back({s, e});
     }
-    while()
-    ASP(Tasks, n);
+    int count = 0;
+    while(true)
+    {
+        if(ASP(Tasks, n)==false)
+        {
+            cout<<"Processors :"<<count<<endl;
+            break;
+        }
+        else
+        {
+            count++;
+        }
+    }
+    //ASP(Tasks, n);
 }
