@@ -16,7 +16,7 @@ KnapSack(vector<int>& weights, vector<int>& values, int n, int k)
     }
 }
 
-//Dynamic programming top down
+//Dynamic programming bottom up
 
 KnapSack(vector<int>& weights, vector<int>& values, int n, int k)
 {
