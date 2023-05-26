@@ -118,6 +118,22 @@ void TopologicalSort(vector<vector<int>>& Graph, int v)
     }
 }
 
+bool checkLoop(vector<vector<int>>& Graph, int s, int v, vector<int>& visited)
+{
+    visited[s] = 1;
+    for(int i=0;i<v;i++)
+    {
+        if(Graph[s][i] == 1)
+        {
+            if(!visited[i])
+                return DFS(Graph, i, v, visited);
+            else
+                return true;
+        }
+    }
+    return false;
+}
+
 int main()
 {
     int v, e;
@@ -145,9 +161,11 @@ int main()
     // cout<<"\nDFS-----------------------------------"<<endl;
     // vector<int> visited(v, 0);
     // DFS(Graph, s, v, visited);
-    cout<<"\nTopological---------------------------"<<endl;
-    TopologicalSort(Graph, v);
-
+    // cout<<"\nTopological---------------------------"<<endl;
+    // TopologicalSort(Graph, v);
+    cout<<"\nCheck loop-------------------------------"<<endl;
+    bool check = checkLoop(Graph, v);
+    cout<<check<<endl;
 }
 
 // DFS
