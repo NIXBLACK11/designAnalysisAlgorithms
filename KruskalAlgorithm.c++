@@ -33,7 +33,7 @@ void unionByWeight(int u, int v, vector<int>& parent)
         }
     }
 }
-
+//TC E*log(E) 
 viii Kruskal(viii Edges, int V, int E)
 {
     sort(Edges.begin(), Edges.end());

@@ -12,6 +12,8 @@ void createGraph(viii Edges, vector<vector<pair<int, int>>>& Graph)
     }
 }
 
+
+//O(Elog(v))
 vector<int> Prims(vector<vector<pair<int, int>>>& Graph, int V)
 {
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
@@ -19,6 +21,7 @@ vector<int> Prims(vector<vector<pair<int, int>>>& Graph, int V)
     vector<int> visited(V, 0);
     vector<int> parent(V, -1);
     q.push({0, 0});
+    dist[0] = 0;
     while(!q.empty())
     {
         int s = q.top().second;
