@@ -1,6 +1,6 @@
 #include<iostream>
 #include<vector>
-#include <deque>
+#include<deque>
 #include<stack>
 #include<bits/stdc++.h>
 using namespace std;

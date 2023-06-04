@@ -38,7 +38,10 @@
   "files.associations": {
     "*.go": "go",
     "iostream": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "ostream": "cpp",
+    "*.tcc": "cpp",
+    "list": "cpp"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

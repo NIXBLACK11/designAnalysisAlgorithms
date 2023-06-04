@@ -3,7 +3,7 @@
 #include <climits>
 using namespace std;
 
-void Bellman_ford(vector<pair<int, pair<int, int>>>& Edges, int v, int e, int src)
+void Bellman_ford( pair<int, int>>>& Edges, int v, int e, int src)
 {
     vector<int> dist(v, INT_MAX);
     dist[src] = 0;
