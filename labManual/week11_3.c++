@@ -19,7 +19,10 @@ string partitionSet(vector<int>& arr)
     int targetSum = totalSum / 2;
     vector<vector<bool>> dp(n + 1, vector<bool>(targetSum + 1, false));
 
-    dp[0][0] = true;
+    for (int i = 0; i <= n; i++) {
+            dp[i][0] = true;
+        }
+
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= targetSum; j++)
