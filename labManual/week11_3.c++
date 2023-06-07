@@ -20,14 +20,13 @@ string partitionSet(vector<int>& arr)
     vector<vector<bool>> dp(n + 1, vector<bool>(targetSum + 1, false));
 
     dp[0][0] = true;
-
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= targetSum; j++)
         {
             if (arr[i - 1] <= j)
             {
-                dp[i][j] = dp[i][j] || dp[i - 1][j - arr[i - 1]];
+                dp[i][j] = dp[i-1][j] || dp[i - 1][j - arr[i - 1]];
             }
             else
             {

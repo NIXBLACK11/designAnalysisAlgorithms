@@ -28,6 +28,20 @@ void mcm(vector<int>& p, int n)
     cout<<m[1][n - 1];
 }
 
+void printOrder(vector<vector<int>>& s, int i, int j)
+{
+    if (i == j)
+    {
+        cout << "A" << i;
+        return;
+    }
+
+    cout << "(";
+    printOrder(s, i, s[i][j]);
+    printOrder(s, s[i][j] + 1, j);
+    cout << ")";
+}
+
 int main()
 {
     int n;
