@@ -19,7 +19,7 @@ void createGraph(const vector<vector<int>>& GraphM, vector<vector<pair<int, int>
     }
 }
 
-void prims(vector<vector<pair<int, int>>>& Graph, int V)
+void prims(vector<vector<pair<int, int>>>& Graph, int  V)
 {
     vector<int> parent(V, -1);
     vector<bool> visited(V, 0);
