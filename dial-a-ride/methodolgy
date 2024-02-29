@@ -1,0 +1,35 @@
+This project involves scheduling N vehicles in a Dial-a-Ride system to maximize revenue. The goal is to efficiently transport passengers from their pick-up locations to their drop-off locations while charging them based on the shortest distance traveled. The input consists of data regarding the city's locations, distances between locations, vehicle information, and passenger requests. The output should be the schedule for each vehicle and the total revenue generated.
+
+Here's a step-by-step guide to approach this project:
+
+Input Parsing:
+
+Read the values of n, N, c, R from the input.
+Create an n * n matrix to store distances between locations.
+Read the distance data and populate the matrix.
+Read the starting location of each vehicle at midnight.
+Read the passenger requests and store them in a data structure (e.g., list or array).
+Distance Calculation:
+
+Use Dijkstra's algorithm or any other suitable algorithm to calculate the shortest distance between all pairs of locations in the city.
+Store the calculated shortest distances in a suitable data structure.
+Revenue Calculation:
+
+Calculate the fare for each passenger request based on the shortest distance between the pick-up and drop-off locations. The base rate is Rs.1 per KM.
+Vehicle Scheduling (Optimization):
+
+Implement an optimization algorithm or a combination of heuristic techniques to schedule the N vehicles in a way that maximizes revenue.
+The algorithm needs to take into account vehicle capacity (c) and the time window constraints of each passenger request.
+Consider the possibility of rejecting some requests if they cannot be accommodated within the constraints.
+Output Generation:
+
+Generate the schedule for each vehicle, indicating the sequence of passenger pick-ups and drop-offs.
+Calculate the total revenue generated from all completed passenger requests.
+Display Results:
+
+Print the schedule for each vehicle and the total revenue generated as the final output.
+Please note that this project requires a solid understanding of algorithms and optimization techniques. You might need to use graph algorithms, time window constraints, and possibly a combination of techniques like Genetic Algorithms, Simulated Annealing, or other optimization algorithms to achieve the best results.
+
+As the project's due date is mentioned as December 31, 2022, make sure to allocate enough time for development, testing, and debugging. Break the project into smaller tasks, and work on them one by one to make the overall development process more manageable.
+
+Keep in mind that this is a complex project, and the optimization part could be challenging. Don't hesitate to seek help from your instructor or classmates if you encounter difficulties. Good luck with your project!
