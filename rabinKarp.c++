@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 #define d 256
 
 using namespace std;
@@ -11,8 +12,7 @@ void search(string s, string pat)
     int n = s.size();
     int p = 0, t = 0, h = 1;
 
-    for (int i = 0; i < m - 1; i++)
-        h = (h * d) % q;
+    h = int(pow(d, m-1))%q;
  
     for (int i = 0; i < m; i++) {
         p = (d * p + pat[i]) % q;
