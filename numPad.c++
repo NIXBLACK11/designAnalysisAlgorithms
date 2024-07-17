@@ -75,10 +75,12 @@ int main() {
     }
 
     // "foo" -> "366"
+    // O(n*m)
     vector<string> nums(n);
     convert(words, nums, n);
 
     vector<string> ans;
+    // O(n*p*m)
     for(int i=0;i<n;i++) {
         string num = nums[i];
         if(search(num, phNum)) {
@@ -87,7 +89,7 @@ int main() {
     }
 
     sort(ans.begin(), ans.end());
-    
+
     for(auto it: ans) {
         cout<<it<<", ";
     }

@@ -5,6 +5,9 @@
 
 using namespace std;
 
+
+// worst case => O(nm)
+// average/best case => O(n+m)
 void search(string s, string pat)
 {
     int q = 101;
