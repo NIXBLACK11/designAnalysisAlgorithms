@@ -43,28 +43,28 @@ void Bellman_ford( pair<int, int>>>& Edges, int v, int e, int src)
 }
 
 int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k)
-    {
-        int e = flights.size();
-        vector<int> dist(n, INT_MAX);
-        dist[src] = 0;
+{
+    int e = flights.size();
+    vector<int> dist(n, INT_MAX);
+    dist[src] = 0;
 
-        for (int i = 0; i <= k; i++) {
-            vector<int> nextDist(dist);
-            for (int j = 0; j < e; j++) {
-                int s = flights[j][0];
-                int d = flights[j][1];
-                int w = flights[j][2];
+    for (int i = 0; i <= k; i++) {
+        vector<int> nextDist(dist);
+        for (int j = 0; j < e; j++) {
+            int s = flights[j][0];
+            int d = flights[j][1];
+            int w = flights[j][2];
 
-                if (dist[s] != INT_MAX && dist[s] + w < nextDist[d]) {
-                    nextDist[d] = dist[s] + w;
-                }
+            if (dist[s] != INT_MAX && dist[s] + w < nextDist[d]) {
+                nextDist[d] = dist[s] + w;
             }
-            dist = nextDist;
         }
-        if (dist[dst] == INT_MAX)
-            return -1;
-        return dist[dst];
+        dist = nextDist;
     }
+    if (dist[dst] == INT_MAX)
+        return -1;
+    return dist[dst];
+}
 
 int main()
 {
