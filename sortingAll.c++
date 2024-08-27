@@ -82,6 +82,58 @@ void mergeSort(vector<int> &arr, int l, int r) {
     }
 }
 
+int partition(vector<int> &arr, int l, int r) {
+    int x = rand() % (r-l+1) + l;
+    swap(arr[x], arr[r]);
+    int pivot = arr[r];
+    int i = l-1;
+    for(int j=l;j<r;j++) {
+        if(arr[j]<pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    i++;
+    swap(arr[i], arr[r]);
+    return i;
+}
+
+void quickSort(vector<int> &arr, int l, int r) {
+    if(l<r) {
+        int p = partition(arr, l, r);
+        quickSort(arr, l, p-1);
+        quickSort(arr, p+1, r);
+    }
+}
+
+void heapify(vector<int> &arr, int i, int n) {
+    int c1 = i*2 + 1;
+    int c2 = i*2 + 2;
+    int max = i;
+
+    if(c1<n && arr[c1]>arr[max]) {
+        max = c1;
+    }
+    if(c2<n && arr[c2]>arr[max]) {
+        max = c2;
+    }
+    if(max!=i) {
+        swap(arr[max], arr[i]);
+        heapify(arr, max, n);
+    }
+}
+
+void heapSort(vector<int> &arr, int n) {
+    for(int i=n/2;i>=0;i--) {
+        heapify(arr, i, n);
+    }
+
+    for(int i=n-1;i>=0;i--) {
+        swap(arr[0], arr[i]);
+        heapify(arr, 0, i);
+    }
+}
+
 void print(vector<int> &arr) {
     for(auto it: arr) cout<<it<<", ";
 }
@@ -100,6 +152,8 @@ int main() {
     // selectionSort(arr, n);
     // insertionSort(arr, n);
     // mergeSort(arr, 0, n-1);
+    // quickSort(arr, 0, n-1);
+    heapSort(arr, n);
 
     print(arr);
     return 0;
