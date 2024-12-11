@@ -153,7 +153,7 @@ int main() {
     // insertionSort(arr, n);
     // mergeSort(arr, 0, n-1);
     // quickSort(arr, 0, n-1);
-    heapSort(arr, n);
+    // heapSort(arr, n);
 
     print(arr);
     return 0;
